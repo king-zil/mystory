@@ -1,72 +1,50 @@
-# Romantic 3D Interactive Website - Development Plan
+# Romantic 3D Website - Development Plan
 
 ## Design Guidelines
 
 ### Design References
-- **Dreamy romantic aesthetic**: Soft gradients, glassmorphism, floating elements
-- **Cinematic feel**: Smooth transitions, parallax, 3D transforms
-- **Style**: Modern Romantic + Glassmorphism + 3D Animations
+- **Romantic cinematic atmosphere**: Soft lighting, floating particles, smooth animations
+- **Glassmorphism UI**: Frosted glass panels with backdrop blur
+- **Style**: Romantic Cinematic + Glassmorphism + Soft Glow
 
 ### Color Palette
-- Primary Background: #0a0015 (Deep Purple-Black night sky)
-- Gradient 1: #1a0030 (Deep Purple)
-- Gradient 2: #2d1b69 (Royal Purple)
-- Gradient 3: #e91e8c (Hot Pink)
-- Accent: #ff6b9d (Romantic Pink)
-- Glow: #c471f5 (Soft Purple Glow)
+- Primary Background: #0a0015 (Deep Purple-Black)
+- Secondary: #1a0a2e (Dark Purple)
+- Accent Pink: #ff6b9d (Romantic Pink)
+- Accent Purple: #c084fc (Soft Purple)
+- Warm Light: #fbbf24 (Golden Glow)
 - Text Primary: #ffffff (White)
-- Text Secondary: #e0c3fc (Lavender)
-- Glass: rgba(255, 255, 255, 0.08) with backdrop-blur
+- Text Secondary: #e0b0ff (Light Lavender)
+- Glass BG: rgba(255, 255, 255, 0.08)
+- Glass Border: rgba(255, 255, 255, 0.15)
 
 ### Typography
-- Heading: 'Playfair Display', serif - elegant romantic feel
-- Body: 'Poppins', sans-serif - clean modern readability
-- Accent: 'Dancing Script', cursive - romantic handwritten feel
+- Heading: 'Playfair Display', serif - weight 700
+- Body: 'Poppins', sans-serif - weight 300/400
+- Accent: 'Dancing Script', cursive - for romantic touches
 
 ### Key Component Styles
-- **Glass Cards**: background rgba(255,255,255,0.06), backdrop-blur 20px, border 1px solid rgba(255,255,255,0.1)
-- **Glow Effects**: box-shadow with pink/purple hues
-- **3D Frames**: perspective 1000px, transform-style preserve-3d, rotateY/rotateX on hover
-- **Buttons/Nav**: Glassmorphism with hover glow
+- **Glass Cards**: backdrop-filter: blur(20px), bg rgba(255,255,255,0.08), border 1px rgba(255,255,255,0.15), rounded 20px
+- **Buttons**: Glass style with pink glow on hover
+- **Gallery Cards**: 3D perspective transform, glow shadow on hover, smooth rotation
+- **Navigation**: Glassmorphism sidebar/dropdown with smooth slide animation
 
 ### Images to Generate
-1. **romantic-couple-sunset-beach.jpg** - Romantic couple silhouette on beach at sunset with warm pink/orange sky (photorealistic)
-2. **romantic-couple-rain-umbrella.jpg** - Couple sharing umbrella in gentle rain with city lights bokeh (photorealistic)
-3. **romantic-couple-stargazing.jpg** - Couple lying on grass stargazing at night with milky way (photorealistic)
-4. **romantic-couple-autumn-walk.jpg** - Couple walking hand in hand through autumn leaves path (photorealistic)
-5. **romantic-couple-coffee-cafe.jpg** - Couple sharing coffee in cozy cafe with warm lighting (photorealistic)
-6. **romantic-couple-dancing-moonlight.jpg** - Couple slow dancing under moonlight in garden (photorealistic)
-7. **romantic-couple-ferris-wheel.jpg** - Couple at ferris wheel at night with colorful lights (photorealistic)
-8. **romantic-couple-picnic-flowers.jpg** - Couple having picnic in flower field with soft sunlight (photorealistic)
-9. **romantic-couple-snow-winter.jpg** - Couple in snowy winter scene with warm scarves (photorealistic)
-10. **romantic-couple-bridge-night.jpg** - Couple on illuminated bridge at night with city reflections (photorealistic)
-11. **romantic-couple-sunrise-mountain.jpg** - Couple watching sunrise from mountain top (photorealistic)
-12. **romantic-couple-garden-roses.jpg** - Couple in beautiful rose garden with soft light (photorealistic)
-13. **romantic-couple-bicycle-countryside.jpg** - Couple riding bicycle together in countryside (photorealistic)
-14. **romantic-couple-library-reading.jpg** - Couple reading together in cozy library (photorealistic)
-15. **romantic-couple-cooking-kitchen.jpg** - Couple cooking together in warm kitchen (photorealistic)
-16. **romantic-couple-boat-lake.jpg** - Couple in small boat on calm lake at golden hour (photorealistic)
-17. **romantic-couple-cherry-blossom.jpg** - Couple under cherry blossom trees with petals falling (photorealistic)
-18. **romantic-couple-rooftop-city.jpg** - Couple on rooftop overlooking city skyline at dusk (photorealistic)
-19. **romantic-couple-beach-bonfire.jpg** - Couple sitting by beach bonfire under stars (photorealistic)
-20. **romantic-couple-train-journey.jpg** - Couple looking out train window at scenic landscape (photorealistic)
+1. **hero-romantic-forest-aerial.jpg** - Aerial view of a misty forest at golden hour with warm light filtering through trees, romantic dreamy atmosphere (Style: photorealistic, warm tones)
+2. **hero-city-night-lights.jpg** - Aerial view of a city at night with soft bokeh lights, romantic warm glow, cinematic feel (Style: photorealistic, warm night)
+3. **hero-soft-clouds-glow.jpg** - Soft pastel clouds with warm glowing light, dreamy romantic sky, pink and purple hues (Style: photorealistic, dreamy)
+4. **romantic-sunset-scenery.jpg** - Beautiful romantic sunset over a calm lake with warm reflections, soft pink and orange sky (Style: photorealistic, romantic)
 
 ---
 
 ## Development Tasks
 
-### Files to Create (3 files - HTML template)
-1. **index.html** - Complete HTML structure with all 7 sections (Home, Album, Semua, Kenangan, Khusus, Kenangan Kita, Footer)
-2. **style.css** - Full styling with gradients, glassmorphism, 3D transforms, animations, responsive design
-3. **script.js** - Floating hearts, particles, smooth scrolling, 3D hover effects, intersection observer animations
+1. **Create todo.md and generate images** - Design guidelines and hero images
+2. **Build index.html** - Full page structure with hero, navigation, galleries, footer
+3. **Build style.css** - Complete styling with glassmorphism, animations, responsive design
+4. **Build script.js** - Three.js background, gallery functions, navigation, visual effects, 3D card interactions
 
-### Sections
-1. Homepage - Hero with animated title, subtitle, dreamy night sky, floating particles
-2. Navigation - Fixed glassmorphism nav with all section links
-3. Album - 20 photos in 3D rotating frames (4-column grid)
-4. Semua - 20 photos in 3D grid with zoom animation
-5. Kenangan - 20 photos in timeline layout with captions
-6. Khusus - 20 photos in cinematic glowing cards
-7. Kenangan Kita - 20 photos in vertical storytelling scroll
-8. Footer - "Forever With You ❤️"
-9. Features - Floating hearts, smooth scroll, responsive, glassmorphism
+## File Structure (3 files only)
+- index.html - Complete HTML structure
+- style.css - All styles, animations, responsive
+- script.js - Three.js, galleries, effects, interactions
