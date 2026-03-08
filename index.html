@@ -1,138 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico" type="image/x-icon">
     <title>Our Memories Together ❤️</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
     <!-- Floating Hearts Container -->
     <div id="hearts-container"></div>
+
     <!-- Particles Container -->
     <div id="particles-container"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-logo">
-            <span class="logo-heart">❤️</span>
-            <span class="logo-text">Our Love</span>
+    <nav id="main-nav">
+        <div class="nav-brand">
+            <span class="nav-heart">❤️</span>
+            <span class="nav-title">Our Love</span>
         </div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
+        <div class="nav-menu">
+            <div class="nav-item album-trigger" id="album-trigger">
+                <span>💝 Album</span>
+                <svg class="arrow-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="sub-menu" id="sub-menu">
+                <div class="sub-item" data-gallery="semua">📸 Semua Gambar</div>
+                <div class="sub-item" data-gallery="saya">🤳 Gambar Saya</div>
+                <div class="sub-item" data-gallery="kenangan">💭 Kenangan</div>
+                <div class="sub-item" data-gallery="kita">💑 Gambar Kita</div>
+            </div>
+        </div>
+        <button class="nav-home-btn" id="home-btn" style="display:none;">
+            ✨ Home
         </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#album" class="nav-link">Album</a></li>
-            <li><a href="#semua" class="nav-link">Semua</a></li>
-            <li><a href="#kenangan" class="nav-link">Kenangan</a></li>
-            <li><a href="#khusus" class="nav-link">Khusus</a></li>
-            <li><a href="#kenangan-kita" class="nav-link">Kenangan Kita</a></li>
-        </ul>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section id="hero" class="section">
+        <div class="hero-bg-slider">
+            <div class="hero-bg-slide active" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/910744/2026-03-08/602eca5d-16f3-4e19-8220-75eb16b1fb0a.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/910744/2026-03-08/c2acbea6-f169-4e2d-8bd9-29867c290f06.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/910744/2026-03-08/906c29e0-b414-4cb8-b874-394571f01b19.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('https://mgx-backend-cdn.metadl.com/generate/images/910744/2026-03-08/69f0ef67-09f7-4947-a0a2-1114b921c0a8.png')"></div>
+        </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-badge">💕 A Love Story</div>
-            <h1 class="hero-title">
-                <span class="title-line">Our Memories</span>
-                <span class="title-line accent">Together</span>
-            </h1>
-            <p class="hero-subtitle">Every moment with you is my favorite story.</p>
-            <div class="hero-hearts">
-                <span>♥</span><span>♥</span><span>♥</span>
-            </div>
-            <a href="#album" class="hero-cta">Explore Our Journey <span class="cta-arrow">→</span></a>
+        <div class="hero-content glass-card">
+            <div class="hero-sparkle">✨</div>
+            <h1 class="hero-title">Our Memories Together</h1>
+            <p class="hero-subtitle">Every moment with you is my favorite story ❤️</p>
+            <div class="hero-divider"></div>
+            <button class="hero-btn" id="explore-btn">
+                <span>💝 Explore Our Album</span>
+            </button>
         </div>
         <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-dot"></div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery-section" class="section" style="display:none;">
+        <div class="gallery-header glass-card">
+            <h2 class="gallery-title" id="gallery-title">📸 Semua Gambar</h2>
+            <p class="gallery-subtitle" id="gallery-subtitle">All our beautiful moments captured together</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content" id="modal-content">
+            <button class="modal-close" id="modal-close">✕</button>
+            <img id="modal-image" src="" alt="Gallery Image">
+            <div class="modal-nav">
+                <button class="modal-prev" id="modal-prev">❮</button>
+                <button class="modal-next" id="modal-next">❯</button>
             </div>
-            <span>Scroll Down</span>
-        </div>
-    </section>
-
-    <!-- Album Section -->
-    <section id="album" class="section album-section">
-        <div class="section-header">
-            <span class="section-badge">📸 Gallery</span>
-            <h2 class="section-title">Album</h2>
-            <p class="section-subtitle">Our beautiful moments captured in time</p>
-            <div class="title-decoration"><span></span><span class="heart-deco">♥</span><span></span></div>
-        </div>
-        <div class="album-grid" id="albumGrid"></div>
-    </section>
-
-    <!-- Semua Section -->
-    <section id="semua" class="section semua-section">
-        <div class="section-header">
-            <span class="section-badge">✨ All Memories</span>
-            <h2 class="section-title">Semua</h2>
-            <p class="section-subtitle">Every single memory we've shared together</p>
-            <div class="title-decoration"><span></span><span class="heart-deco">♥</span><span></span></div>
-        </div>
-        <div class="semua-grid" id="semuaGrid"></div>
-    </section>
-
-    <!-- Kenangan Section -->
-    <section id="kenangan" class="section kenangan-section">
-        <div class="section-header">
-            <span class="section-badge">🕰️ Timeline</span>
-            <h2 class="section-title">Kenangan</h2>
-            <p class="section-subtitle">A timeline of our most precious memories</p>
-            <div class="title-decoration"><span></span><span class="heart-deco">♥</span><span></span></div>
-        </div>
-        <div class="timeline" id="timeline"></div>
-    </section>
-
-    <!-- Khusus Section -->
-    <section id="khusus" class="section khusus-section">
-        <div class="section-header">
-            <span class="section-badge">💎 Special</span>
-            <h2 class="section-title">Khusus</h2>
-            <p class="section-subtitle">Our most special and treasured moments</p>
-            <div class="title-decoration"><span></span><span class="heart-deco">♥</span><span></span></div>
-        </div>
-        <div class="khusus-grid" id="khususGrid"></div>
-    </section>
-
-    <!-- Kenangan Kita Section -->
-    <section id="kenangan-kita" class="section story-section">
-        <div class="section-header">
-            <span class="section-badge">📖 Our Story</span>
-            <h2 class="section-title">Kenangan Kita</h2>
-            <p class="section-subtitle">The story of us, told through our memories</p>
-            <div class="title-decoration"><span></span><span class="heart-deco">♥</span><span></span></div>
-        </div>
-        <div class="story-container" id="storyContainer"></div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-section">
-        <div class="footer-hearts">
-            <span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span>
-        </div>
-        <h2 class="footer-title">Forever With You ❤️</h2>
-        <p class="footer-subtitle">Every love story is beautiful, but ours is my favorite.</p>
-        <div class="footer-divider"></div>
-        <p class="footer-credit">Made with ❤️ for you</p>
-    </footer>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
-        <button class="lightbox-next" id="lightboxNext">&#10095;</button>
-        <div class="lightbox-content">
-            <img id="lightboxImg" src="" alt="Memory">
-            <p class="lightbox-caption" id="lightboxCaption"></p>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content glass-card">
+            <div class="footer-hearts">❤️ 💕 ❤️</div>
+            <h2 class="footer-title">Forever With You ❤️</h2>
+            <p class="footer-text">Every love story is beautiful, but ours is my favorite</p>
+            <div class="footer-divider"></div>
+            <p class="footer-credit">Made with 💖 for you</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="./script.js"></script>
 </body>
-</html>
+
+                </html>
